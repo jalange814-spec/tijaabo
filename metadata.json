@@ -1,0 +1,6 @@
+{
+  "name": "Machadka Khadiija Bintu Khuwaylid – Qardho SMS",
+  "description": "Nidaamka Maamulka Dugsiga ee Machadka Khadiija Bintu Khuwaylid ee magaalada Qardho (2026–2027) - School Management System.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

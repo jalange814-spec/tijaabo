@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      (function() {
+        try {
+          var origFetch = window.fetch;
+          var currentFetch = typeof origFetch === 'function' ? origFetch.bind(window) : origFetch;
+          var descriptor = {
+            configurable: true,
+            enumerable: true,
+            get: function() {
+              return currentFetch;
+            },
+            set: function(fn) {
+              currentFetch = fn;
+            }
+          };
+          try {
+            Object.defineProperty(window, 'fetch', descriptor);
+          } catch (_) {}
+          try {
+            if (window.Window && window.Window.prototype) {
+              Object.defineProperty(window.Window.prototype, 'fetch', descriptor);
+            }
+          } catch (_) {}
+        } catch (err) {
+          // Fallback if environment forbids property redefinition
+        }
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Machadka Khadiija Bintu Khuwaylid – Qardho SMS</title>
+    <meta name="description" content="Nidaamka Maamulka Dugsiga ee Machadka Khadiija Bintu Khuwaylid ee magaalada Qardho (2026–2027) - School Management System." />
+    <meta property="og:title" content="Machadka Khadiija Bintu Khuwaylid – Qardho SMS" />
+    <meta property="og:description" content="Nidaamka Maamulka Dugsiga ee Machadka Khadiija Bintu Khuwaylid ee magaalada Qardho (2026–2027) - School Management System." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

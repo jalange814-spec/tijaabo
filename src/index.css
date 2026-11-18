@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --primary-teal: #005A51;
+  --primary-gold: #FCA700;
+  --teal-light: #00897B;
+  --dark-teal: #003F39;
+  --teal-medium: #007A6E;
+  --mint-light: #E6F6F4;
+  --gold-dark: #E69500;
+  --gold-light: #FFD580;
+  --gray-light: #F5F7F7;
+  --text-dark: #1E293B;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+.font-arabic {
+  font-family: 'Amiri', serif;
+}
+
+.font-mono-numbers {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Print formatting for official school certificates, ID cards, receipts, and report cards */
+@media print {
+  @page {
+    margin: 10mm;
+  }
+  body > #root > div > *:not(.print-modal-root) {
+    display: none !important;
+  }
+  .print-modal-root {
+    position: static !important;
+    inset: auto !important;
+    overflow: visible !important;
+    background: white !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+  .print-modal-dialog {
+    box-shadow: none !important;
+    border: none !important;
+    max-height: none !important;
+    max-width: none !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+  .print-modal-body {
+    overflow: visible !important;
+    padding: 0 !important;
+    background: white !important;
+    display: block !important;
+  }
+  .print-surface {
+    position: static !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    border: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .exam-a4-page {
+    width: 210mm !important;
+    min-height: 280mm !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    break-after: page;
+    page-break-after: always;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .exam-a4-page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+  .exam-card-item {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+}
+
+@page {
+  size: A4 portrait;
+  margin: 8mm;
+}
